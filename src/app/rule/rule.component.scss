@@ -1,0 +1,15 @@
+.rule {
+    display: flex;
+    justify-content: space-between;
+  }
+  .controls {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    input {
+      width: 80%;
+    }
+  }
+  .action {
+    justify-content: end;
+  }

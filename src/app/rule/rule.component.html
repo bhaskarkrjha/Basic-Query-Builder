@@ -1,0 +1,21 @@
+<div class="rule">
+    <div class="controls">
+      <input
+        placeholder="Enter Name"
+        type="text"
+        name="name"
+        id="name"
+        [(ngModel)]="rule.name"
+      />
+      <input
+        placeholder="Enter Value"
+        type="text"
+        name="value"
+        id="value"
+        [(ngModel)]="rule.value"
+      />
+    </div>
+    <div class="actions">
+      <button (click)="handleDeleteRule(rule.id)">Delete</button>
+    </div>
+  </div>

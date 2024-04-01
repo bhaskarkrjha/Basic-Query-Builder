@@ -1,0 +1,31 @@
+<div class="group">
+    <div class="header">
+      <div class="condition">
+        <button>AND</button>
+        <button>OR</button>
+      </div>
+      <div class="action">
+        <button (click)="handleAddRule()">Add Rule</button>
+        <button (click)="handleAddGroup()">Add Group</button>
+        <button *ngIf="groupLevel != -1" (click)="handleDeleteGroup(query.id)">
+          Delete
+        </button>
+      </div>
+    </div>
+    <div class="rules" *ngFor="let rule of query.rules; let i = index">
+      <app-rule
+        *ngIf="rule.type == 'rule'"
+        [rule]="rule"
+        [groupLevel]="groupLevel"
+        [groupIndex]="i"
+        (handleDelete)="handleChildDelete($event)"
+      ></app-rule>
+      <app-group
+        *ngIf="rule.type == 'group'"
+        [query]="rule"
+        [groupLevel]="groupLevel + 1"
+        [groupIndex]="i"
+        (handleDelete)="handleChildDelete($event)"
+      ></app-group>
+    </div>
+  </div>
